@@ -2,6 +2,6 @@ import Person from "./person.js";
 
 export default class Worker extends Person{
     introduce(){
-        return this.introduce + " I a Worker. I have a job.";
+        return super.introduce() + " I am a Worker. I have a job.";
     }
 }
