@@ -45,11 +45,8 @@ node_modules/mocha/bin/mocha spec/practice_1/*.js --require babel/register
 
 ## 学习资源
 1. [Introduction to Object Oriented JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
-1.
 1. [Javascript 面向对象编程（一）：封装](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
 1. [Javascript面向对象编程（二）：构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
 1. [Javascript面向对象编程（三）：非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)
-1.
 1. [JavaScript Objects](http://www.w3schools.com/js/js_object_definition.asp)
-1.
 1. [CodeForDream Javascript 中级](http://www.codefordream.com/courses/js_intermediate/sections)
