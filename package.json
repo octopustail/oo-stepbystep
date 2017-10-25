@@ -1,16 +1,17 @@
 {
   "scripts": {
-    "test": "mocha --compilers js:babel/register --require source-map-support/register"
+    "test": "mocha spec/**/*_spec.js --require babel/register --require source-map-support/register"
   },
   "dependencies": {
-    "mocha": "2.2.5",
-    "sinon-chai": "2.8.0",
     "lodash": "3.9.3"
   },
   "devDependencies": {
     "babel": "^5.8.23",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
+    "mocha": "^4.0.1",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.14.0",
     "source-map-support": "^0.3.3"
   }
 }

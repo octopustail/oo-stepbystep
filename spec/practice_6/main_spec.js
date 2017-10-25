@@ -8,7 +8,6 @@ var expect =  chai.expect;
 chai.use(sinonChai);
 import Person from "../../src/practice_6/person";
 import Student from "../../src/practice_6/student";
-import Worker from "../../src/practice_6/worker";
 
 describe("Person", ()=>{
     it("should have field name and age", ()=>{

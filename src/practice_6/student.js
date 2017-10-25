@@ -1,4 +1,4 @@
-import Person from "./student";
+import Person from "./person";
 
 export default class Student extends Person{
     constructor(name, age, klass){
