@@ -113,8 +113,21 @@ describe("Class", function(){
         var klass = new Class(2);
         expect(klass.getDisplayName()).to.equal("Class 2");
     });
-    
+
     describe("#assignLeader", function(){
+        let sandbox;
+        let spy;
+
+        beforeEach(()=>{
+            sandbox = sinon.sandbox.create();
+            spy = sandbox.stub(console, 'log');
+        });
+
+        afterEach(function(){
+          sandbox.restore();
+        });
+
+
         it("should assign student as Leader, given student is class member", function(){
             var klass = new Class(2);
             var student = new Student(1, "Jerry", 21, klass);
@@ -138,8 +151,6 @@ describe("Class", function(){
             var otherKlass = new Class(3);
             var student = new Student(1, "Jerry", 21, otherKlass);
 
-            var spy = sinon.spy(console, "log");
-
             klass.assignLeader(student);
 
             expect(klass.leader).not.equal(student);
@@ -147,20 +158,20 @@ describe("Class", function(){
             //expect(console.log.getCall(0).args[0]).to.equal("It is not one of us."); //assert style 2.
             expect(spy.calledWith("It is not one of us.")).to.be.ok;
         });
-        
+
     });
-    
+
     describe("#appendMemeber", function(){
         it("should change student's klass attribute", function(){
             var klass = new Class(2);
             var otherKlass = new Class(3);
-            
+
             var student = new Student(1, "Jerry", 21, otherKlass);
 
             expect(student.klass).to.equal(otherKlass);
 
             klass.appendMember(student);
-            
+
             expect(student.klass).to.equal(klass);
         });
     });

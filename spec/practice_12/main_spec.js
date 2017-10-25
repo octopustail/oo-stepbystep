@@ -104,13 +104,18 @@ describe("Person", function(){
 });
 
 describe("Class", function(){
-    var spy = sinon.spy(console, "log");
-    
-    before(function(){
-        spy.reset();
-        
+    let sandbox;
+    let spy;
+
+    beforeEach(()=>{
+        sandbox = sinon.sandbox.create();
+        spy = sandbox.stub(console, 'log');
     });
-    
+
+    afterEach(function(){
+      sandbox.restore();
+    });
+
     it("should have class number", function(){
         var klass = new Class(2);
         expect(klass.number).to.equal(2);
@@ -159,9 +164,9 @@ describe("Class", function(){
             var student = new Student(1, "Jerry", 21, klass);
             var teacher = new Teacher(1, "Tom", 21, [klass, otherKlass]);
             klass.registerAssignLeaderListener(teacher);
-            
+
             klass.assignLeader(student);
-            
+
             expect(spy.calledWith("I am Tom. I know Jerry become Leader of Class 2.")).to.be.ok;
         });
     });
