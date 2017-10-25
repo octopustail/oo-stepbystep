@@ -10,31 +10,30 @@ Teacher.prototype.constructor = Teacher;
 
 Teacher.prototype.super_introduce = Teacher.prototype.introduce;
 
-Teacher.prototype.introduce = function(){
-    if(this.klass){
+Teacher.prototype.introduce = function() {
+    if (this.klass) {
         return this.teach(this.klass.getDisplayName());
-    }else{
+    } else {
         return this.teach("No Class");
-
     }
 };
 
-Teacher.prototype.basicIntroduce = function(order){
+Teacher.prototype.basicIntroduce = function(order) {
     return `${this.super_introduce()} I am a Teacher.`;
 };
 
-Teacher.prototype.teach = function(order){
+Teacher.prototype.teach = function(order) {
     return `${this.basicIntroduce()} I teach ${order}.`;
 };
 
-Teacher.prototype.doNotTeach = function(order){
+Teacher.prototype.doNotTeach = function(order) {
     return `${this.basicIntroduce()} I don't teach ${order}.`;
 };
 
 Teacher.prototype.introduceWith = function({klass, name}) {
-    if(klass.equal(this.klass)){
+    if (klass.equal(this.klass)) {
         return this.teach(name);
-    }else{
+    } else {
         return this.doNotTeach(name);
     }
 };
