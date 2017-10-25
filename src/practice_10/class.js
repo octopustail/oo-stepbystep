@@ -29,4 +29,4 @@ Class.prototype.isLeader = function(student){
 };
 
 
-module.exports = Class;
+export default Class;

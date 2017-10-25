@@ -1,4 +1,4 @@
-const Person = require("./person.js");
+import Person from "./person.js";
 
 function Student(id, name, age, klass) {
     Person.apply(this, arguments);
@@ -19,4 +19,4 @@ Student.prototype.introduce = function(){
 Student.prototype.equal = function(student){
     return student && this.id === student.id;
 };
-module.exports = Student;
+export default Student;

@@ -1,4 +1,4 @@
-const Person = require("./person.js");
+import Person from "./person.js";
 
 function Student(name, age, klass) {
     Person.call(this, name, age);
@@ -13,4 +13,4 @@ Student.prototype.introduce = function(){
     return `${this.super_introduce()} I am a Student. I am at ${this.klass.getDisplayName()}.`;
 };
 
-module.exports = Student;
+export default Student;

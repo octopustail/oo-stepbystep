@@ -10,4 +10,4 @@ Person.prototype.introduce = function(){
     return this._basicIntroduce();
 };
 
-module.exports = Person;
+export default Person;

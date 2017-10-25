@@ -1,4 +1,4 @@
-const Person = require("./person.js");
+import Person from "./person.js";
 
 function Teacher(id, name, age, klasses) {
     Person.apply(this, arguments);
@@ -15,9 +15,9 @@ Teacher.prototype.super_introduce = Teacher.prototype.introduce;
 
 Teacher.prototype._buildKlassesString = function(){
     let classesString = "";
-    this.klasses.forEach((klass, index, klasses) => {
-        classesString += klass.number;
-        if (index != klasses.length - 1) {
+    this.klasses.forEach(({number}, index, {length}) => {
+        classesString += number;
+        if (index != length - 1) {
             classesString += ", ";
         }
     });
@@ -37,4 +37,4 @@ Teacher.prototype.teach = function(order){
     return `${this.super_introduce()} I am a Teacher. I teach ${order}.`;
 };
 
-module.exports = Teacher;
+export default Teacher;

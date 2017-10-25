@@ -1,4 +1,4 @@
-const Person = require("./person.js");
+import Person from "./person.js";
 
 function Worker(name, age, klass) {
     Person.apply(this, arguments);
@@ -12,4 +12,4 @@ Worker.prototype.introduce = function(){
     return `${this._basicIntroduce()} I am a Worker. I have a job.`;
 };
 
-module.exports = Worker;
+export default Worker;

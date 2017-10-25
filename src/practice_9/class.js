@@ -20,4 +20,4 @@ Class.prototype.equal = function(klass){
 Class.prototype.isLeader = function(student){
     return this.leader && student && student.equal(this.leader);
 };
-module.exports = Class;
+export default Class;

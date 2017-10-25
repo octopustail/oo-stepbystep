@@ -51,4 +51,4 @@ Class.prototype.registerAssignLeaderListener = function(listener){
     this.assignLeaderListeners.push(listener);
 };
 
-module.exports = Class;
+export default Class;

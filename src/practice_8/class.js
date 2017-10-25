@@ -9,4 +9,4 @@ Class.prototype.getDisplayName = function(){
 Class.prototype.equal = function(klass){
     return klass && this.number == klass.number;
 };
-module.exports = Class;
+export default Class;

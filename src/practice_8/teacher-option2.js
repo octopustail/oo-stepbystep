@@ -1,4 +1,4 @@
-const Person = require("./person.js");
+import Person from "./person.js";
 
 function Teacher(name, age, klass) {
     Person.apply(this, arguments);
@@ -26,13 +26,13 @@ Teacher.prototype.basicIntroduce = function(order){
     return this.trickyIntroduce("", order);
 };
 
-Teacher.prototype.introduceWith = function(student){
-    if(student.klass.equal(this.klass)){
-        return this.basicIntroduce(student.name);
+Teacher.prototype.introduceWith = function({klass, name}) {
+    if(klass.equal(this.klass)){
+        return this.basicIntroduce(name);
     }else{
-        return this.trickyIntroduce("don't ", student.name);
+        return this.trickyIntroduce("don't ", name);
 
     }
 };
 
-module.exports = Teacher;
+export default Teacher;
