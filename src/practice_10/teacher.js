@@ -10,16 +10,15 @@ Teacher.prototype.constructor = Teacher;
 
 Teacher.prototype.super_introduce = Teacher.prototype.introduce;
 
-Teacher.prototype.introduce = function(){
-    if(this.klass){
+Teacher.prototype.introduce = function() {
+    if (this.klass) {
         return this.teach(this.klass.getDisplayName());
-    }else{
+    } else {
         return this.teach("No Class");
-
     }
 };
 
-Teacher.prototype.teach = function(order){
+Teacher.prototype.teach = function(order) {
     return `${this.super_introduce()} I am a Teacher. I teach ${order}.`;
 };
 
