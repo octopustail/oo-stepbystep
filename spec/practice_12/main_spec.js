@@ -16,16 +16,12 @@ describe("Person", () => {
         const person = new Person(1, "Tom", 21);
         expect(person.name).to.equal("Tom");
         expect(person.age).to.equal(21);
-
     });
 
     it("should have a method introduce, introduce person with name and age", () => {
         const person = new Person(1, "Tom", 21);
-
         const introduce = person.introduce();
-
         expect(introduce).to.equal("My name is Tom. I am 21 years old.");
-
     });
 
     describe("Student", () => {
@@ -59,10 +55,7 @@ describe("Person", () => {
 
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.");
             });
-
         });
-
-
     });
 
     describe("Teacher", () => {
@@ -85,21 +78,15 @@ describe("Person", () => {
             it("should overwrite Person introduce, introduce with name, age and class number, given teacher have class", () => {
                 const teacher = new Teacher(1, "Tom", 21, klasses);
                 const introduce = teacher.introduce();
-
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2, 3.");
-
             });
 
             it("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class", () => {
                 const teacher = new Teacher(1, "Tom", 21);
                 const introduce = teacher.introduce();
-
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
-
             });
         });
-
-
     });
 });
 
@@ -132,6 +119,7 @@ describe("Class", () => {
             const student = new Student(1, "Jerry", 21, klass);
 
             klass.assignLeader(student);
+
             expect(klass.leader).to.equal(student);
          });
 
@@ -153,7 +141,6 @@ describe("Class", () => {
             klass.assignLeader(student);
 
             expect(klass.leader).not.equal(student);
-
             //expect(console.log.getCall(0).args[0]).to.equal("It is not one of us."); //assert style 2.
             expect(spy.calledWith("It is not one of us.")).to.be.ok;
         });
