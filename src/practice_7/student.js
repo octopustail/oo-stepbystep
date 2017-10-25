@@ -10,7 +10,7 @@ Student.prototype.constructor = Student;
 
 Student.prototype.super_introduce = Student.prototype.introduce;
 Student.prototype.introduce = function(){
-    return this.super_introduce() + " I am a Student. I am at Class "+ this.klass+".";
+    return `${this.super_introduce()} I am a Student. I am at Class ${this.klass}.`;
 };
 
 module.exports = Student;

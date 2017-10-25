@@ -12,7 +12,7 @@ Teacher.prototype.super_introduce = Teacher.prototype.introduce;
 
 Teacher.prototype.introduce = function(){
     if(this.klass){
-        return this.teach("Class "+ this.klass);
+        return this.teach(`Class ${this.klass}`);
     }else{
         return this.teach("No Class");
 
@@ -20,7 +20,7 @@ Teacher.prototype.introduce = function(){
 };
 
 Teacher.prototype.teach = function(order){
-    return this.super_introduce() + " I am a Teacher. I teach " + order +".";
+    return `${this.super_introduce()} I am a Teacher. I teach ${order}.`;
 };
 
 module.exports = Teacher;

@@ -3,7 +3,7 @@ function Class(number){
 }
 
 Class.prototype.getDisplayName = function(){
-    return "Class " + this.number;
+    return `Class ${this.number}`;
 };
 
 Class.prototype.equal = function(klass){

@@ -27,14 +27,14 @@ Teacher.prototype._buildKlassesString = function(){
 Teacher.prototype.introduce = function(){
     if(this.klasses && this.klasses.length!=0){
         const classesString = this._buildKlassesString();
-        return this.teach("Class " + classesString);
+        return this.teach(`Class ${classesString}`);
     }else{
         return this.teach("No Class");
     }
 };
 
 Teacher.prototype.teach = function(order){
-    return this.super_introduce() + " I am a Teacher. I teach " + order +".";
+    return `${this.super_introduce()} I am a Teacher. I teach ${order}.`;
 };
 
 Teacher.prototype.isTeaching = function(student){
@@ -44,11 +44,11 @@ Teacher.prototype.isTeaching = function(student){
 };
 
 Teacher.prototype.notifyJoin = function(student, klass){
-    console.log("I am "+ this.name + ". I know "+ student.name +" has joined "+klass.getDisplayName()+".");
+    console.log(`I am ${this.name}. I know ${student.name} has joined ${klass.getDisplayName()}.`);
 };
 
 Teacher.prototype.notifyAssignLeader = function(student, klass){
-    console.log("I am "+ this.name + ". I know "+ student.name +" become Leader of "+klass.getDisplayName()+".");
+    console.log(`I am ${this.name}. I know ${student.name} become Leader of ${klass.getDisplayName()}.`);
 };
 
 module.exports = Teacher;

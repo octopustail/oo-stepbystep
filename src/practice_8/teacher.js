@@ -20,15 +20,15 @@ Teacher.prototype.introduce = function(){
 };
 
 Teacher.prototype.basicIntroduce = function(order){
-    return this.super_introduce() + " I am a Teacher.";
+    return `${this.super_introduce()} I am a Teacher.`;
 };
 
 Teacher.prototype.teach = function(order){
-    return  this.basicIntroduce() + " I teach " + order +".";
+    return `${this.basicIntroduce()} I teach ${order}.`;
 };
 
 Teacher.prototype.doNotTeach = function(order){
-    return this.basicIntroduce() + " I don't teach " + order +".";
+    return `${this.basicIntroduce()} I don't teach ${order}.`;
 };
 
 Teacher.prototype.introduceWith = function(student){

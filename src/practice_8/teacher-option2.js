@@ -20,7 +20,7 @@ Teacher.prototype.introduce = function(){
 };
 
 Teacher.prototype.trickyIntroduce = function(pre, order){
-    return this.super_introduce() + " I am a Teacher. I "+pre+"teach " + order +".";
+    return `${this.super_introduce()} I am a Teacher. I ${pre}teach ${order}.`;
 };
 Teacher.prototype.basicIntroduce = function(order){
     return this.trickyIntroduce("", order);

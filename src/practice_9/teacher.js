@@ -20,7 +20,7 @@ Teacher.prototype.introduce = function(){
 };
 
 Teacher.prototype.teach = function(order){
-    return this.super_introduce() + " I am a Teacher. I teach " + order +".";
+    return `${this.super_introduce()} I am a Teacher. I teach ${order}.`;
 };
 
 module.exports = Teacher;

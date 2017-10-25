@@ -9,7 +9,7 @@ Worker.prototype = Object.create(Person.prototype);
 Worker.prototype.constructor = Worker;
 
 Worker.prototype.introduce = function(){
-    return this._basicIntroduce() + " I am a Worker. I have a job.";
+    return `${this._basicIntroduce()} I am a Worker. I have a job.`;
 };
 
 module.exports = Worker;

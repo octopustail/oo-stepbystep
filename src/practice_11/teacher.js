@@ -27,14 +27,14 @@ Teacher.prototype._buildKlassesString = function(){
 Teacher.prototype.introduce = function(){
     if(this.klasses && this.klasses.length!=0){
         const classesString = this._buildKlassesString();
-        return this.teach("Class " + classesString);
+        return this.teach(`Class ${classesString}`);
     }else{
         return this.teach("No Class");
     }
 };
 
 Teacher.prototype.teach = function(order){
-    return this.super_introduce() + " I am a Teacher. I teach " + order +".";
+    return `${this.super_introduce()} I am a Teacher. I teach ${order}.`;
 };
 
 module.exports = Teacher;

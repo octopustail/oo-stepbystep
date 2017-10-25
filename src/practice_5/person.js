@@ -4,7 +4,7 @@ function Person(name, age){
 }
 
 Person.prototype._basicIntroduce = function(){
-    return "My name is "+this.name+". I am "+this.age+" years old.";
+    return `My name is ${this.name}. I am ${this.age} years old.`;
 };
 Person.prototype.introduce = function(){
     return this._basicIntroduce();
