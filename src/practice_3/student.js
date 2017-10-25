@@ -1,15 +1,1 @@
-import Person from "./person.js";
 
-function Student(name, age, klass) {
-    Person.call(this, name, age);
-    this.klass = klass;
-}
-
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
-
-Student.prototype.introduce = function() {
-    return `I am a Student. I am at Class ${this.klass}.`;
-};
-
-export default Student;
