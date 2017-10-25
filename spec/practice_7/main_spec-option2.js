@@ -6,10 +6,10 @@ import sinonChai from "sinon-chai";
 const expect = chai.expect;
 chai.use(sinonChai);
 
-import Person from "../../src/practice_8/person.js";
-import Student from "../../src/practice_8/student.js";
-import Teacher from "../../src/practice_8/teacher-option2.js";
-import Class from "../../src/practice_8/class.js";
+import Person from "../../src/practice_7/person.js";
+import Student from "../../src/practice_7/student.js";
+import Teacher from "../../src/practice_7/teacher-option2.js";
+import Class from "../../src/practice_7/class.js";
 
 describe("Option-2 Person", () => {
     it("should have field name and age", () => {
@@ -27,14 +27,14 @@ describe("Option-2 Person", () => {
         expect(introduce).to.equal("My name is Tom. I am 21 years old.");
 
     });
-    
+
     describe("Student", () => {
         let klass;
-        
+
         before(() => {
            klass = new Class(2); 
         });
-        
+
         it("should have field name, age and class number", () => {
             const student = new Student("Tom", 21, klass);
             expect(student.name).to.equal("Tom");
@@ -65,7 +65,7 @@ describe("Option-2 Person", () => {
             expect(teacher.age).to.equal(21);
             expect(teacher.klass).to.equal(klass);
         });
-        
+
         describe("#introduce", () => {
             it("should overwrite Person introduce, introduce with name, age and class number, given teacher have class", () => {
                 const teacher = new Teacher("Tom", 21, klass);
@@ -83,15 +83,15 @@ describe("Option-2 Person", () => {
 
             });
         });
-        
-        
+
+
         describe("#introduceWith", () => {
             let studentJerry;
-            
+
             before(() => {
                 studentJerry = new Student("Jerry", 8, klass);
             });
-            
+
             it("should return I am teaching some guy, given my class is same with this guy's class", () => {
                 const teacher = new Teacher("Tom", 21, klass);
                 const introduce = teacher.introduceWith(studentJerry);
@@ -108,10 +108,10 @@ describe("Option-2 Person", () => {
 
             });
         });
-        
-        
-        
-        
+
+
+
+
     });
 });
 

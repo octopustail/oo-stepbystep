@@ -16,7 +16,14 @@ Class有一个assignLeader方法，接收一个Student实例。意为将一名�
 
 >My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.
 
-如果没有就继续返回旧的字符串：
+如果没有就继续返回旧的字符串。
+
+Class还有一个appendMember方法，接受一个Student实例。意味将一名学生加入该班级。
+如果学生没有加入该班级，那么在调用assignLeader方法的时候，不会assign成功，会打印一句话：
+
+>It is not one of us.
+
+相应的调用Student的introduce方法也只会返回旧的字符串。
 
 再写一个Teacher类继承Person类，除了id，name，age属性，也有class属性。也有一个introduce方法，
 introduce方法返回一个字符串形如：

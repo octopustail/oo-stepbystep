@@ -3,9 +3,10 @@ import chai from "chai";
 import sinonChai from "sinon-chai";
 const expect = chai.expect;
 chai.use(sinonChai);
+
 import Person from "../../src/practice_6/person.js";
 import Student from "../../src/practice_6/student.js";
-import Worker from "../../src/practice_6/worker.js";
+import Teacher from "../../src/practice_6/teacher.js";
 
 
 describe("Person", () => {
@@ -36,17 +37,24 @@ describe("Person", () => {
         });
     });
 
-    describe("Worker", () => {
-        it("should have field name, age", () => {
-            const worker = new Worker("Tom", 21);
-            expect(worker.name).to.equal("Tom");
-            expect(worker.age).to.equal(21);
-        });
+   describe("Teacher", () => {
+       it("should have field name, age and class number", () => {
+           const teacher = new Teacher("Tom", 21, 2);
+           expect(teacher.name).to.equal("Tom");
+           expect(teacher.age).to.equal(21);
+           expect(teacher.klass).to.equal(2);
+       });
 
-        it("should overwrite Person introduce, introduce with name and age, but different with Person introduce", () => {
-            const worker = new Worker("Tom", 21);
-            const introduce = worker.introduce();
-            expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I have a job.");
-        });
-    });
+       it("should overwrite Person introduce, introduce with name, age and class number, given teacher have class", () => {
+           const teacher = new Teacher("Tom", 21, 2);
+           const introduce = teacher.introduce();
+           expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2.");
+       });
+
+       it("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class", () => {
+           const teacher = new Teacher("Tom", 21);
+           const introduce = teacher.introduce();
+           expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
+       });
+   }); 
 });

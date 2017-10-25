@@ -42,6 +42,7 @@ describe("Person", () => {
             it("should overwrite Person introduce, introduce with name, age and class number", () => {
                 const student = new Student(1, "Tom", 21, klass);
                 const introduce = student.introduce();
+
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
             });
 
@@ -52,7 +53,7 @@ describe("Person", () => {
                 klass.assignLeader(student);
                 const introduce = student.introduce();
 
-                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.");            
+                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.");
             });
         });
     });
@@ -90,6 +91,18 @@ describe("Person", () => {
 });
 
 describe("Class", () => {
+    let sandbox;
+    let spy;
+
+    beforeEach(()=>{
+        sandbox = sinon.sandbox.create();
+        spy = sandbox.stub(console, 'log');
+    });
+
+    afterEach(() => {
+      sandbox.restore();
+    });
+
     it("should have class number", () => {
         const klass = new Class(2);
         expect(klass.number).to.equal(2);
@@ -101,19 +114,6 @@ describe("Class", () => {
     });
 
     describe("#assignLeader", () => {
-        let sandbox;
-        let spy;
-
-        beforeEach(()=>{
-            sandbox = sinon.sandbox.create();
-            spy = sandbox.stub(console, 'log');
-        });
-
-        afterEach(() => {
-          sandbox.restore();
-        });
-
-
         it("should assign student as Leader, given student is class member", () => {
             const klass = new Class(2);
             const student = new Student(1, "Jerry", 21, klass);
@@ -145,6 +145,17 @@ describe("Class", () => {
             expect(spy.calledWith("It is not one of us.")).to.be.ok;
         });
 
+        it("should notify assign leader listeners", () => {
+            const klass = new Class(2);
+            const otherKlass = new Class(3);
+            const student = new Student(1, "Jerry", 21, klass);
+            const teacher = new Teacher(1, "Tom", 21, [klass, otherKlass]);
+            klass.registerAssignLeaderListener(teacher);
+
+            klass.assignLeader(student);
+
+            expect(spy.calledWith("I am Tom. I know Jerry become Leader of Class 2.")).to.be.ok;
+        });
     });
 
     describe("#appendMemeber", () => {
@@ -159,6 +170,19 @@ describe("Class", () => {
             klass.appendMember(student);
 
             expect(student.klass).to.equal(klass);
+        });
+
+        it("should notify join listeners", () => {
+            const klass = new Class(2);
+            const otherKlass = new Class(3);
+            const teacher = new Teacher(1, "Tom", 21, [klass, otherKlass]);
+
+            const student = new Student(1, "Jerry", 21, otherKlass);
+            klass.registerJoinListener(teacher);
+
+            klass.appendMember(student);
+
+            expect(spy.calledWith("I am Tom. I know Jerry has joined Class 2.")).to.be.ok;
         });
     });
 });

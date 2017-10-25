@@ -42,6 +42,7 @@ describe("Person", () => {
             it("should overwrite Person introduce, introduce with name, age and class number", () => {
                 const student = new Student(1, "Tom", 21, klass);
                 const introduce = student.introduce();
+
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
             });
 
@@ -81,6 +82,7 @@ describe("Person", () => {
             it("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class", () => {
                 const teacher = new Teacher(1, "Tom", 21);
                 const introduce = teacher.introduce();
+
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
             });
         });
@@ -99,12 +101,24 @@ describe("Class", () => {
     });
 
     describe("#assignLeader", () => {
+        let sandbox;
+        let spy;
+
+        before(()=>{
+            sandbox = sinon.sandbox.create();
+            spy = sandbox.stub(console, 'log');
+        });
+
+        after(() => {
+          sandbox.restore();
+        });
+
+
         it("should assign student as Leader, given student is class member", () => {
             const klass = new Class(2);
             const student = new Student(1, "Jerry", 21, klass);
 
             klass.assignLeader(student);
-
             expect(klass.leader).to.equal(student);
          });
 
@@ -116,6 +130,33 @@ describe("Class", () => {
             klass.assignLeader(student);
 
             expect(klass.leader).not.equal(student);
+        });
+
+        it("should not assign student as Leader, given student is not class member", () => {
+            const klass = new Class(2);
+            const otherKlass = new Class(3);
+            const student = new Student(1, "Jerry", 21, otherKlass);
+
+            klass.assignLeader(student);
+
+            expect(klass.leader).not.equal(student);
+            //expect(console.log.getCall(0).args[0]).to.equal("It is not one of us."); //assert style 2.
+            expect(spy.calledWith("It is not one of us.")).to.be.ok;
+        });
+    });
+
+    describe("#appendMemeber", () => {
+        it("should change student's klass attribute", () => {
+            const klass = new Class(2);
+            const otherKlass = new Class(3);
+
+            const student = new Student(1, "Jerry", 21, otherKlass);
+
+            expect(student.klass).to.equal(otherKlass);
+
+            klass.appendMember(student);
+
+            expect(student.klass).to.equal(klass);
         });
     });
 });

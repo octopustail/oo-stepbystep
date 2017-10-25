@@ -29,10 +29,10 @@ describe("Person", () => {
             expect(student.klass).to.equal(2);
         });
 
-        it("should overwrite Person introduce, introduce with class number", () => {
+        it("should overwrite Person introduce, introduce with name, age and class number", () => {
             const student = new Student("Tom", 21, 2);
             const introduce = student.introduce();
-            expect(introduce).to.equal("I am a Student. I am at Class 2.");
+            expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
         });
     });
 
@@ -43,10 +43,10 @@ describe("Person", () => {
             expect(worker.age).to.equal(21);
         });
 
-        it("should overwrite Person introduce, introduce with no field", () => {
+        it("should overwrite Person introduce, introduce with name and age, but different with Person introduce", () => {
             const worker = new Worker("Tom", 21);
             const introduce = worker.introduce();
-            expect(introduce).to.equal("I am a Worker. I have a job.");
+            expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Worker. I have a job.");
         });
     });
 });

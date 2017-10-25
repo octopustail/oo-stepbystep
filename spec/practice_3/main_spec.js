@@ -6,6 +6,7 @@ chai.use(sinonChai);
 
 import Person from "../../src/practice_3/person.js";
 import Student from "../../src/practice_3/student.js";
+import Worker from "../../src/practice_3/worker.js";
 
 describe("Person", () => {
     it("should have field name and age", () => {
@@ -28,10 +29,24 @@ describe("Person", () => {
             expect(student.klass).to.equal(2);
         });
 
-        it("should overwrite Person introduce, introduce student with class", () => {
+        it("should overwrite Person introduce, introduce with class number", () => {
             const student = new Student("Tom", 21, 2);
             const introduce = student.introduce();
             expect(introduce).to.equal("I am a Student. I am at Class 2.");
         });
-    })
+    });
+
+    describe("Worker", () => {
+        it("should have field name, age", () => {
+            const worker = new Worker("Tom", 21);
+            expect(worker.name).to.equal("Tom");
+            expect(worker.age).to.equal(21);
+        });
+
+        it("should overwrite Person introduce, introduce with no field", () => {
+            const worker = new Worker("Tom", 21);
+            const introduce = worker.introduce();
+            expect(introduce).to.equal("I am a Worker. I have a job.");
+        });
+    });
 });
