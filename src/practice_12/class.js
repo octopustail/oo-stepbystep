@@ -14,7 +14,7 @@ Class.prototype.assignLeader = function(student){
     if(student && student.klass.equal(this)){
         this.leader = student;
         var me = this;
-        this.assignLeaderListeners.forEach(function(listener) {
+        this.assignLeaderListeners.forEach(listener => {
             listener.notifyAssignLeader(student, me);
         });
     }else{
@@ -26,7 +26,7 @@ Class.prototype.appendMember = function(student){
     student.klass = this;
     this.members.push(student);
     var me = this;
-    this.joinListeners.forEach(function(listener) {
+    this.joinListeners.forEach(listener => {
         listener.notifyJoin(student, me);
     });
 };
@@ -40,9 +40,7 @@ Class.prototype.isLeader = function(student){
 };
 
 Class.prototype.isIn = function(student){
-    return this.members.some(function(member){
-        return member.equal(student);
-    });
+    return this.members.some(member => member.equal(student));
 };
 
 Class.prototype.registerJoinListener = function(listener){

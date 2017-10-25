@@ -15,7 +15,7 @@ Teacher.prototype.super_introduce = Teacher.prototype.introduce;
 
 Teacher.prototype._buildKlassesString = function(){
     var classesString = "";
-    this.klasses.forEach(function (klass, index, klasses) {
+    this.klasses.forEach((klass, index, klasses) => {
         classesString += klass.number;
         if (index != klasses.length - 1) {
             classesString += ", ";
@@ -38,7 +38,7 @@ Teacher.prototype.teach = function(order){
 };
 
 Teacher.prototype.isTeaching = function(student){
-    return this.klasses.some(function(klass) {
+    return this.klasses.some(klass => {
         klass.isIn(student);
     });
 };

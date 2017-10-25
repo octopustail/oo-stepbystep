@@ -8,8 +8,6 @@ function Worker(name, age, klass) {
 Worker.prototype = Object.create(Person.prototype);
 Worker.prototype.constructor = Worker;
 
-Worker.prototype.introduce = function(){
-    return "I am a Worker. I have a job.";
-};
+Worker.prototype.introduce = () => "I am a Worker. I have a job.";
 
 module.exports = Worker;
