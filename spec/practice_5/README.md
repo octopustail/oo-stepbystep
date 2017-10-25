@@ -15,8 +15,8 @@ introduce方法返回一个字符串形如：
 >My name is Tom. I am 21 years old. I am a Worker. I have a job.
 
 
-所有这三个类的这段文字
+所有这三个类的这段文字：
 
 >My name is Tom. I am 21 years old.
 
-应该调用Person的一个方法basic_introduce来返回
+应该调用Person的一个方法basic_introduce来返回。
