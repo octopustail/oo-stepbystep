@@ -10,15 +10,15 @@ const Student = require("../../src/practice_6/student.js");
 const Worker = require("../../src/practice_6/worker.js");
 
 
-describe("Person", function(){
-    it("should have field name and age", function(){
+describe("Person", () => {
+    it("should have field name and age", () => {
         const person = new Person("Tom", 21);
         expect(person.name).to.equal("Tom");
         expect(person.age).to.equal(21);
 
     });
 
-    it("should have a method introduce, introduce person with name and age", function(){
+    it("should have a method introduce, introduce person with name and age", () => {
         const person = new Person("Tom", 21);
 
         const introduce = person.introduce();
@@ -27,8 +27,8 @@ describe("Person", function(){
 
     });
 
-    describe("Student", function(){
-        it("should have field name, age and class number", function(){
+    describe("Student", () => {
+        it("should have field name, age and class number", () => {
             const student = new Student("Tom", 21, 2);
             expect(student.name).to.equal("Tom");
             expect(student.age).to.equal(21);
@@ -36,7 +36,7 @@ describe("Person", function(){
 
         });
 
-        it("should overwrite Person introduce, introduce with name, age and class number", function(){
+        it("should overwrite Person introduce, introduce with name, age and class number", () => {
             const student = new Student("Tom", 21, 2);
             const introduce = student.introduce();
 
@@ -47,15 +47,15 @@ describe("Person", function(){
     });
 
 
-    describe("Worker", function(){
+    describe("Worker", () => {
 
-        it("should have field name, age", function(){
+        it("should have field name, age", () => {
             const worker = new Worker("Tom", 21);
             expect(worker.name).to.equal("Tom");
             expect(worker.age).to.equal(21);
 
         });
-        it("should overwrite Person introduce, introduce with name and age, but different with Person introduce", function(){
+        it("should overwrite Person introduce, introduce with name and age, but different with Person introduce", () => {
             const worker = new Worker("Tom", 21);
             const introduce = worker.introduce();
             expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I have a job.");

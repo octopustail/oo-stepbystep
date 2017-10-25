@@ -8,15 +8,15 @@ chai.use(sinonChai);
 const Person = require("../../src/practice_3/person.js");
 const Student = require("../../src/practice_3/student.js");
 
-describe("Person", function(){
-    it("should have field name and age", function(){
+describe("Person", () => {
+    it("should have field name and age", () => {
         const person = new Person("Tom", 21);
         expect(person.name).to.equal("Tom");
         expect(person.age).to.equal(21);
 
     });
 
-    it("should have a method introduce, introduce person with name and age", function(){
+    it("should have a method introduce, introduce person with name and age", () => {
         const person = new Person("Tom", 21);
 
         const introduce = person.introduce();
@@ -25,8 +25,8 @@ describe("Person", function(){
 
     });
 
-    describe("Student", function(){
-        it("should have field name, age and class number", function(){
+    describe("Student", () => {
+        it("should have field name, age and class number", () => {
             const student = new Student("Tom", 21, 2);
             expect(student.name).to.equal("Tom");
             expect(student.age).to.equal(21);
@@ -34,7 +34,7 @@ describe("Person", function(){
 
         });
 
-        it("should overwrite Person introduce, introduce student with class", function(){
+        it("should overwrite Person introduce, introduce student with class", () => {
             const student = new Student("Tom", 21, 2);
             const introduce = student.introduce();
 

@@ -11,15 +11,15 @@ const Student = require("../../src/practice_11/student.js");
 const Teacher = require("../../src/practice_11/teacher.js");
 const Class = require("../../src/practice_11/class.js");
 
-describe("Person", function(){
-    it("should have field name and age", function(){
+describe("Person", () => {
+    it("should have field name and age", () => {
         const person = new Person(1, "Tom", 21);
         expect(person.name).to.equal("Tom");
         expect(person.age).to.equal(21);
 
     });
 
-    it("should have a method introduce, introduce person with name and age", function(){
+    it("should have a method introduce, introduce person with name and age", () => {
         const person = new Person(1, "Tom", 21);
 
         const introduce = person.introduce();
@@ -28,29 +28,29 @@ describe("Person", function(){
 
     });
 
-    describe("Student", function(){
+    describe("Student", () => {
         let klass;
 
-        before(function(){
+        before(() => {
             klass = new Class(2);
         });
 
-        it("should have field name, age and class number", function(){
+        it("should have field name, age and class number", () => {
             const student = new Student(1, "Tom", 21, klass);
             expect(student.name).to.equal("Tom");
             expect(student.age).to.equal(21);
             expect(student.klass).to.equal(klass);
         });
 
-        describe("#introduce", function(){
-            it("should overwrite Person introduce, introduce with name, age and class number", function(){
+        describe("#introduce", () => {
+            it("should overwrite Person introduce, introduce with name, age and class number", () => {
                 const student = new Student(1, "Tom", 21, klass);
                 const introduce = student.introduce();
 
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
             });
 
-            it("should print Leader role, given student is leader", function(){
+            it("should print Leader role, given student is leader", () => {
                 const klass = new Class(2);
                 const student = new Student(1, "Tom", 21, klass);
 
@@ -65,14 +65,14 @@ describe("Person", function(){
 
     });
 
-    describe("Teacher", function(){
+    describe("Teacher", () => {
         let klasses;
 
-        before(function(){
+        before(() => {
             klasses = [new Class(2), new Class(3)];
         });
 
-        it("should have field name, age and class number", function(){
+        it("should have field name, age and class number", () => {
             const teacher = new Teacher(1, "Tom", 21, klasses);
             expect(teacher.name).to.equal("Tom");
             expect(teacher.age).to.equal(21);
@@ -81,8 +81,8 @@ describe("Person", function(){
             expect(teacher.klasses[1]).to.equal(klasses[1]);
         });
 
-        describe("#introduce", function(){
-            it("should overwrite Person introduce, introduce with name, age and class number, given teacher have class", function(){
+        describe("#introduce", () => {
+            it("should overwrite Person introduce, introduce with name, age and class number, given teacher have class", () => {
                 const teacher = new Teacher(1, "Tom", 21, klasses);
                 const introduce = teacher.introduce();
 
@@ -90,7 +90,7 @@ describe("Person", function(){
 
             });
 
-            it("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class", function(){
+            it("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class", () => {
                 const teacher = new Teacher(1, "Tom", 21);
                 const introduce = teacher.introduce();
 
@@ -103,18 +103,18 @@ describe("Person", function(){
     });
 });
 
-describe("Class", function(){
-    it("should have class number", function(){
+describe("Class", () => {
+    it("should have class number", () => {
         const klass = new Class(2);
         expect(klass.number).to.equal(2);
     });
 
-    it("should get display name with number", function(){
+    it("should get display name with number", () => {
         const klass = new Class(2);
         expect(klass.getDisplayName()).to.equal("Class 2");
     });
 
-    describe("#assignLeader", function(){
+    describe("#assignLeader", () => {
         let sandbox;
         let spy;
 
@@ -123,12 +123,12 @@ describe("Class", function(){
             spy = sandbox.stub(console, 'log');
         });
 
-        afterEach(function(){
+        afterEach(() => {
           sandbox.restore();
         });
 
 
-        it("should assign student as Leader, given student is class member", function(){
+        it("should assign student as Leader, given student is class member", () => {
             const klass = new Class(2);
             const student = new Student(1, "Jerry", 21, klass);
 
@@ -136,7 +136,7 @@ describe("Class", function(){
             expect(klass.leader).to.equal(student);
          });
 
-        it("should not assign student as Leader, given student is not class member", function(){
+        it("should not assign student as Leader, given student is not class member", () => {
             const klass = new Class(2);
             const otherKlass = new Class(3);
             const student = new Student(1, "Jerry", 21, otherKlass);
@@ -146,7 +146,7 @@ describe("Class", function(){
             expect(klass.leader).not.equal(student);
         });
 
-        it("should not assign student as Leader, given student is not class member", function(){
+        it("should not assign student as Leader, given student is not class member", () => {
             const klass = new Class(2);
             const otherKlass = new Class(3);
             const student = new Student(1, "Jerry", 21, otherKlass);
@@ -161,8 +161,8 @@ describe("Class", function(){
 
     });
 
-    describe("#appendMemeber", function(){
-        it("should change student's klass attribute", function(){
+    describe("#appendMemeber", () => {
+        it("should change student's klass attribute", () => {
             const klass = new Class(2);
             const otherKlass = new Class(3);
 
