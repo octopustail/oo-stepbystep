@@ -1,4 +1,4 @@
-var Person = require("./person.js");
+const Person = require("./person.js");
 
 function Student(name, age, klass) {
     Person.call(this, name, age);

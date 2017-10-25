@@ -1,4 +1,4 @@
-var Person = require("./person.js");
+const Person = require("./person.js");
 
 function Worker(name, age) {
     Person.apply(this, arguments);

@@ -13,7 +13,7 @@ Class.prototype.getDisplayName = function(){
 Class.prototype.assignLeader = function(student){
     if(student && student.klass.equal(this)){
         this.leader = student;
-        var me = this;
+        const me = this;
         this.assignLeaderListeners.forEach(listener => {
             listener.notifyAssignLeader(student, me);
         });
@@ -25,7 +25,7 @@ Class.prototype.assignLeader = function(student){
 Class.prototype.appendMember = function(student){
     student.klass = this;
     this.members.push(student);
-    var me = this;
+    const me = this;
     this.joinListeners.forEach(listener => {
         listener.notifyJoin(student, me);
     });
