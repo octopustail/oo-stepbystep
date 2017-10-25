@@ -1,11 +1,15 @@
-import Person from "./person"
+var Person = require("./person.js");
 
-export default class Student extends Person{
-    constructor(name, age, klass){
-        super(name, age);
-        this.klass = klass;
-    }
-    introduce(){
-        return this.basicIntroduce() + " I am a Student. I am at Class " + this.klass + ".";
-    }
+function Student(name, age, klass) {
+    Person.call(this, name, age);
+    this.klass = klass;
 }
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+Student.prototype.introduce = function(){
+    return "I am a Student. I am at Class " + this.klass + ".";
+};
+
+module.exports = Student;

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "mocha spec/**/*_spec.js --require babel/register --require source-map-support/register"
+    "test": "mocha spec/**/*.js --require babel/register --require source-map-support/register"
   },
   "dependencies": {
     "lodash": "3.9.3"

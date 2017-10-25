@@ -1,21 +1,24 @@
 "use strict";
-import _ from "lodash";
-import chai from "chai";
-import sinon from "sinon";
-import sinonChai from "sinon-chai";
-var expect =  chai.expect;
-
+var _ = require("lodash");
+var chai = require("chai");
+var sinon = require("sinon");
+var sinonChai = require("sinon-chai");
+var expect = chai.expect;
 chai.use(sinonChai);
-import Person from "../../src/practice_6/person";
-import Student from "../../src/practice_6/student";
+var Person = require("../../src/practice_6/person.js");
+var Student = require("../../src/practice_6/student.js");
+var Worker = require("../../src/practice_6/worker.js");
 
-describe("Person", ()=>{
-    it("should have field name and age", ()=>{
-        var person = new Person("Tom", 21); expect(person.name).to.equal("Tom");
+
+describe("Person", function(){
+    it("should have field name and age", function(){
+        var person = new Person("Tom", 21);
+        expect(person.name).to.equal("Tom");
         expect(person.age).to.equal(21);
+
     });
 
-    it("should have a method introduce, introduce person with name and age", ()=>{
+    it("should have a method introduce, introduce person with name and age", function(){
         var person = new Person("Tom", 21);
 
         var introduce = person.introduce();
@@ -24,8 +27,8 @@ describe("Person", ()=>{
 
     });
 
-    describe("Student", ()=>{
-        it("should have field name, age and class number", ()=>{
+    describe("Student", function(){
+        it("should have field name, age and class number", function(){
             var student = new Student("Tom", 21, 2);
             expect(student.name).to.equal("Tom");
             expect(student.age).to.equal(21);
@@ -33,7 +36,7 @@ describe("Person", ()=>{
 
         });
 
-        it("should overwrite Person introduce, introduce student with class", ()=>{
+        it("should overwrite Person introduce, introduce with name, age and class number", function(){
             var student = new Student("Tom", 21, 2);
             var introduce = student.introduce();
 
@@ -43,19 +46,18 @@ describe("Person", ()=>{
 
     });
 
-    describe("Teacher", ()=>{
 
-        it("should have field name, age and klass", ()=>{
-            var teacher = new Teacher("Tom", 21, 2);
-            expect(teacher.name).to.equal("Tom");
-            expect(teacher.age).to.equal(21);
+    describe("Worker", function(){
+
+        it("should have field name, age", function(){
+            var worker = new Worker("Tom", 21);
+            expect(worker.name).to.equal("Tom");
+            expect(worker.age).to.equal(21);
 
         });
-        it("should overwrite Person introduce, introduce with no field", ()=>{
-            var teacher = new Teacher("Tom", 21);
-
-            var introduce = teacher.introduce();
-
+        it("should overwrite Person introduce, introduce with name and age, but different with Person introduce", function(){
+            var worker = new Worker("Tom", 21);
+            var introduce = worker.introduce();
             expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I have a job.");
 
         });
