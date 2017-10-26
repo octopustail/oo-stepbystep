@@ -17,6 +17,6 @@ introduce方法返回一个字符串形如：
 
 所有Person的子类的这段文字：
 
-My name is Tom. I am 21 years old.
+>My name is Tom. I am 21 years old.
 
 都应该调用Person的`introduce`方法来获得。
