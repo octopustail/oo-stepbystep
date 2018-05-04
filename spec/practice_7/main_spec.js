@@ -26,7 +26,7 @@ describe("Person", () => {
         let klass;
 
         before(() => {
-           klass = new Class(2); 
+           klass = new Class(2);
         });
 
         it("should have field name, age and class number", () => {

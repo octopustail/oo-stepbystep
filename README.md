@@ -40,8 +40,8 @@ npm test
 ```
 运行特定测试：
 ```
-node_modules/mocha/bin/mocha spec/practice_1/*.js --require babel/register
-```
+
+```node_modules/mocha/bin/mocha spec/practice_1/person.js --require babel/register
 
 ## 学习资源
 1. [Introduction to Object Oriented JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
