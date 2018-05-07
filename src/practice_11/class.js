@@ -1,6 +1,10 @@
 class Class {
     constructor(number) {
         this.number = number;
+        this.members = [];
+        this.assignLeaderListener = [];
+        this.assignJoinListener = [];
+        this.joinListeners = [];
     }
 
     getDisplayName() {
@@ -9,7 +13,11 @@ class Class {
 
     assignLeader(student) {
         if (student.klass.number === this.number) {
-            this.leader = student
+            this.leader = student;
+            const me = this;
+            this.assignLeaderListener.forEach((listener) => {
+                listener.knownAssignLeader(student, me);
+            })
         } else {
             console.log("It is not one of us.");
         }
@@ -18,13 +26,19 @@ class Class {
 
     appendMember(student) {
         student.klass = this;
+        this.members.push(student);
+        const me = this;
+        this.joinListeners.forEach(listener => {
+            listener.notifyJoin(student, me);
+        });
     }
 
-    registerAssignLeaderListener(teacher){
+    registerAssignLeaderListener(teacher) {
+        this.assignLeaderListener.push(teacher);
     }
 
-    registerJoinListener(teacher){
-
+    registerJoinListener(teacher) {
+        this.assignJoinListener.push(teacher);
     }
 }
 

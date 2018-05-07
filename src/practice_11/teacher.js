@@ -8,7 +8,7 @@ class Teacher extends Person {
     }
 
     introduce() {
-        let arr = [],str = '';
+        let arr = [], str = '';
         if (this.klasses) {
             this.klasses.forEach((p) => {
                     arr.push(p.number)
@@ -27,6 +27,15 @@ class Teacher extends Person {
         } else {
             return super.introduce() + " I am a Teacher. I don't teach " + student.name + ".";
         }
+    }
+
+    knownAssignLeader({name}, klass) {
+        console.log(`I am ${this.name}. I know ${name} become Leader of ${klass.getDisplayName()}.`)
+
+    }
+
+    notifyJoin({name}, klass) {
+        console.log(`I am ${this.name}. I know ${name} has joined ${klass.getDisplayName()}.`)
     }
 }
 
