@@ -3,7 +3,6 @@ class Class {
         this.number = number;
         this.members = [];
         this.assignLeaderListener = [];
-        this.assignJoinListener = [];
         this.joinListeners = [];
     }
 
@@ -23,7 +22,6 @@ class Class {
         }
 
     }
-
     appendMember(student) {
         student.klass = this;
         this.members.push(student);
@@ -37,8 +35,8 @@ class Class {
         this.assignLeaderListener.push(teacher);
     }
 
-    registerJoinListener(teacher) {
-        this.assignJoinListener.push(teacher);
+    registerJoinListener(listener) {
+        this.joinListeners.push(listener);
     }
 }
 
